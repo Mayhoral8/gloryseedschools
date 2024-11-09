@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 // next.config.js
-module.exports = {
+// next.config.mjs
+export default {
   eslint: {
     ignoreDuringBuilds: true,
   },
