@@ -5,7 +5,7 @@ import ReactQueryProvider from "./reactqueryProvider";
 import Footer from "./footer";
 import "./globals.css";
 import Navbar from "./navbar";
-
+import Modal from "../../components/modal";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -35,6 +35,7 @@ export default function RootLayout({
         <ReactQueryProvider >
         <ContextComp>
           <section>
+            <Modal/>
             <Navbar />
             {children}
             <Footer />

@@ -1,17 +1,48 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Modal from "../../../../components/modal";
 import Image from "next/image";
 import image from "@/assets/portal/results.png";
+import { ContextCreate } from "@/app/context/context";
+import supabase from "@/services/supabase";
 
 const Results = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [userName, setUserName] = useState("");
+  const {setShowModal, modalMsg, setModalMsg} = useContext(ContextCreate);
+  const [userName, setUserName] = useState("")
+ 
 
   useEffect(() => {
-    const studentName = localStorage.getItem("authData");
-    setUserName(studentName);
+    const authData = JSON.parse(localStorage.getItem("authData"));
+    setUserName(authData.name);
   });
+
+  const downloadResultFunc = (resultUrl)=>{
+    const link = document.createElement("a");
+    link.href = resultUrl;
+    link.download = `${resultUrl.split("/").pop()}`; // Set a default file name if needed
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); 
+  }
+
+  const getResult = async(studentId)=>{
+    const { data, error } = await supabase.storage
+    .from("Results")
+    .download(`${studentId}.docx`);
+    if (error) {
+      setShowModal(true);
+      setModalMsg("File not found please check back soon")
+      return
+    }
+    else {
+      const { data } = supabase.storage
+        .from("Results")
+        .getPublicUrl(`${studentId}.docx`);
+      const fileUrl = data.publicUrl;
+      downloadResultFunc(fileUrl)
+      return
+    }
+  }
 
   const downloadResult = () => {
     const resultUrl = localStorage.getItem("ResultUrl");
@@ -27,14 +58,15 @@ const Results = () => {
       link.click();
       document.body.removeChild(link); // Clean up the link element after download
     } else {
-      setShowModal(true);
-      console.error("No result URL found in localStorage.");
+      const authData = JSON.parse(localStorage.getItem("authData"))
+      const studentId = authData.id
+      getResult(studentId)
     }
   };
 
   return (
     <main className=" h-screen">
-      {showModal && <Modal setshowModal={setShowModal} />}
+   
       <Image
         src={image}
         alt="Gloryseed school results page"

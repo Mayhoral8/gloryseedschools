@@ -1,24 +1,33 @@
 'use client'
-import {createContext, useRef} from 'react'
+import {createContext, useRef, useState} from 'react'
 
 
 interface ContextTypes {
     ref1: React.RefObject<HTMLDivElement>
     ref2: React.RefObject<HTMLDivElement>
+    setShowModal: React.Dispatch<React.SetStateAction<boolean>>
+    setModalMsg: React.Dispatch<React.SetStateAction<string>>
+    showModal: boolean
+    modalMsg: string
   }
-  console.log("ds")
-
+  
 export const ContextCreate = createContext({} as ContextTypes)
 const ContextComp: React.FC<{ children: React.ReactNode }> = (props) => {
 
     const ref1 = useRef<HTMLDivElement>(null)
     const ref2 = useRef<HTMLDivElement>(null)
+    const [showModal, setShowModal] = useState(false)
+    const [modalMsg, setModalMsg] = useState("")
 
   return (
     <ContextCreate.Provider
          value ={{
           ref1,
           ref2,
+          showModal,
+          setShowModal,
+          modalMsg,
+          setModalMsg
       
         }}>
   {props.children}

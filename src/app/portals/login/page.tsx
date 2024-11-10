@@ -1,16 +1,19 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import supabase from "@/services/supabase";
 import Loader from "../../../../components/loader";
 import Image from "next/image";
 import image from "@/assets/portal/results.png";
 import { useRouter } from "next/navigation"; 
+import Modal from "../../../../components/modal";
+import { ContextCreate } from "@/app/context/context";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [isClient, setIsClient] = useState(false); // Add this state to check client-side rendering
+  const {modalMsg, setModalMsg, setShowModal, showModal} = useContext(ContextCreate)
+  const [isClient, setIsClient] = useState(false); 
   const router = useRouter();
 
   // Run only on the client side
@@ -23,14 +26,21 @@ const Login = () => {
     const { data: student, error } = await supabase
       .from("Students")
       .select("NAME")
-      .eq("USER ID", userId);
+      .eq("USER ID", userId)
+      .eq("Password", password);
 
     if (error || !student || student.length === 0) {
       console.error("Authentication error:", error || "Student not found");
+      setShowModal(true)
+      setModalMsg("Authentication error, please check your credentials")
       setIsLoading(false);
       return;
     } else {
-      localStorage.setItem("authData", student[0].NAME);
+      const authData = {
+        name: student[0].NAME,
+        id: userId
+      }
+      localStorage.setItem("authData", JSON.stringify(authData));
 
       const updatedUserId = userId.replaceAll("/", "_");
       const { data, error } = await supabase.storage
@@ -73,6 +83,7 @@ const Login = () => {
   if (isClient && !localStorage.getItem("authData")) {
     return (
       <section className="h-screen">
+        
         <Image
           src={image}
           alt="Gloryseed school results page"

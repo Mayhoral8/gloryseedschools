@@ -40,6 +40,7 @@ const Navbar = () => {
     console.log("dswe");
     
     localStorage.removeItem("authData")
+    localStorage.removeItem("ResultUrl")
     router.push("/portals/login")
   }
 
@@ -94,7 +95,7 @@ const Navbar = () => {
     }
   };
 
-  console.log(pathname);
+  
   
   const [state, dispatch] = useReducer(reducerFunc, initialState);
 
