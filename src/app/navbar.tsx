@@ -32,10 +32,6 @@ const Navbar = () => {
   const [portalMenuOpen, setPortalMenuOpen] = useState<boolean>(false);
   const router = useRouter()
 
-  const handlePortalMenu = () => {
-    setPortalMenuOpen(!portalMenuOpen);
-  };
-
   const handleLogout = ()=>{
     console.log("dswe");
     
@@ -160,9 +156,9 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="lg:hidden cursor-pointer">
+        <div className="lg:hidden cursor-pointer text-2xl">
           {openNavBar ? (
-            <FaXmark onClick={() => navBarHandler("")} />
+            <FaXmark  onClick={() => navBarHandler("")} />
           ) : (
             <GiHamburgerMenu onClick={() => navBarHandler("")} />
           )}
@@ -188,29 +184,14 @@ const Navbar = () => {
             </li>
           </Link>
           <Link href="/portals">
-            <div onClick={handlePortalMenu} className="">
               <div
                 className={`${openNavBar ? "visible" : "hidden"}  lg:block ${
                   state.portalsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
                 } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 cursor-pointer flex flex-row items-center justify-between`}
+                onClick={() => navBarHandler("portal")}
               >
-                Portals
-                {/* {portalMenuOpen === true ? 
-             <span>
-               <RxCaretUp/>
-              </span>
-               : 
-               <span>
-               <RxCaretDown/>
-               </span>
-               } */}
-              </div>
-              {/* <div className={`lg:absolute flex shadow-md flex-col bg-white w-36 ml-3 mt-2 h-12 text-xs ${portalMenuOpen === true ? "h-32 " : "h-0 hidden"} relative`}>
-              <div className="flex flex-col justify-start items-start px-2 gap-y-2">
-              <li>Primary</li>
-              <li>Secondary</li>
-              </div>
-            </div> */}
+                Portal
+              
             </div>
           </Link>
 

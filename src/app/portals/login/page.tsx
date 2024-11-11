@@ -4,16 +4,18 @@ import supabase from "@/services/supabase";
 import Loader from "../../../../components/loader";
 import Image from "next/image";
 import image from "@/assets/portal/results.png";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import Modal from "../../../../components/modal";
 import { ContextCreate } from "@/app/context/context";
+import mobileImage from "@/assets/portal/result-mobile.png";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const {modalMsg, setModalMsg, setShowModal, showModal} = useContext(ContextCreate)
-  const [isClient, setIsClient] = useState(false); 
+  const { modalMsg, setModalMsg, setShowModal, showModal } =
+    useContext(ContextCreate);
+  const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   // Run only on the client side
@@ -31,15 +33,15 @@ const Login = () => {
 
     if (error || !student || student.length === 0) {
       console.error("Authentication error:", error || "Student not found");
-      setShowModal(true)
-      setModalMsg("Authentication error, please check your credentials")
+      setShowModal(true);
+      setModalMsg("Authentication error, please check your credentials");
       setIsLoading(false);
       return;
     } else {
       const authData = {
         name: student[0].NAME,
-        id: userId
-      }
+        id: userId,
+      };
       localStorage.setItem("authData", JSON.stringify(authData));
 
       const updatedUserId = userId.replaceAll("/", "_");
@@ -62,12 +64,12 @@ const Login = () => {
     }
   };
 
-  const handleUserId = (e:any) => {
+  const handleUserId = (e: any) => {
     e.preventDefault();
     setUserId(e.target.value);
   };
 
-  const handlePassword = (e:any) => {
+  const handlePassword = (e: any) => {
     e.preventDefault();
     setPassword(e.target.value);
   };
@@ -83,13 +85,17 @@ const Login = () => {
   if (isClient && !localStorage.getItem("authData")) {
     return (
       <section className="h-screen">
-        
         <Image
           src={image}
           alt="Gloryseed school results page"
-          className="mt-16"
+          className="mt-16 hidden lg:block"
         />
-        <article className="items-center justify-center text-center flex flex-col lg:w-[50%] w-[80%] mx-auto gap-y-6">
+        <Image
+          src={mobileImage}
+          alt="Gloryseed school results page"
+          className="lg:hidden"
+        />
+        <article className="items-center justify-center text-center flex flex-col lg:w-[50%] w-[80%] mx-auto gap-y-6 mt-10">
           <div className="flex flex-col gap-y-2 w-full items-center justify-center">
             <label className="w-[70%] text-left">User Id</label>
             <input

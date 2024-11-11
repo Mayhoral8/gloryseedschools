@@ -5,44 +5,43 @@ import Image from "next/image";
 import image from "@/assets/portal/results.png";
 import { ContextCreate } from "@/app/context/context";
 import supabase from "@/services/supabase";
+import mobileImage from "@/assets/portal/result-mobile.png";
 
 const Results = () => {
-  const {setShowModal, modalMsg, setModalMsg} = useContext(ContextCreate);
-  const [userName, setUserName] = useState("")
- 
+  const { setShowModal, modalMsg, setModalMsg } = useContext(ContextCreate);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("authData"));
     setUserName(authData.name);
   });
 
-  const downloadResultFunc = (resultUrl)=>{
+  const downloadResultFunc = (resultUrl) => {
     const link = document.createElement("a");
     link.href = resultUrl;
     link.download = `${resultUrl.split("/").pop()}`; // Set a default file name if needed
     document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link); 
-  }
+    document.body.removeChild(link);
+  };
 
-  const getResult = async(studentId)=>{
+  const getResult = async (studentId) => {
     const { data, error } = await supabase.storage
-    .from("Results")
-    .download(`${studentId}.docx`);
+      .from("Results")
+      .download(`${studentId}.docx`);
     if (error) {
       setShowModal(true);
-      setModalMsg("File not found please check back soon")
-      return
-    }
-    else {
+      setModalMsg("File not found please check back soon");
+      return;
+    } else {
       const { data } = supabase.storage
         .from("Results")
         .getPublicUrl(`${studentId}.docx`);
       const fileUrl = data.publicUrl;
-      downloadResultFunc(fileUrl)
-      return
+      downloadResultFunc(fileUrl);
+      return;
     }
-  }
+  };
 
   const downloadResult = () => {
     const resultUrl = localStorage.getItem("ResultUrl");
@@ -58,19 +57,23 @@ const Results = () => {
       link.click();
       document.body.removeChild(link); // Clean up the link element after download
     } else {
-      const authData = JSON.parse(localStorage.getItem("authData"))
-      const studentId = authData.id
-      getResult(studentId)
+      const authData = JSON.parse(localStorage.getItem("authData"));
+      const studentId = authData.id;
+      getResult(studentId);
     }
   };
 
   return (
     <main className=" h-screen">
-   
       <Image
         src={image}
         alt="Gloryseed school results page"
-        className="mt-16"
+        className="mt-16 hidden lg:block"
+      />
+      <Image
+        src={mobileImage}
+        alt="Gloryseed school results page"
+        className="lg:hidden"
       />
       <div className=" items-center justify-center text-center flex flex-col w-full">
         <div className="flex flex-row text-2xl">

@@ -102,26 +102,26 @@ export default function Home() {
         }}
       >
         <h2>Portals</h2>
-        <article className="lg:flex-row  flex flex-col justify-center items-center lg:justify-between">
+        <article className="lg:flex-row  flex flex-col justify-center items-center lg:justify-between gap-y-8 lg:gap-y-0">
 
-        <div className="flex text-center lg:text-start items-center flex-col gap-y-2 lg:items-start lg:w-[30%]">
+        <div className="flex text-center lg:text-start items-center flex-col lg:items-start lg:w-[30%] gap-y-4">
           <h2 className="font-bold text-2xl">Assignments</h2>
           <p className="px-6 lg:px-0 font-light">
             Click the check assignments button below to check your child/ward’s
             assignments
           </p>
           <button className="rounded-xl px-2 justify-center flex items-center bg-[#ECD337] w-40 h-8 ">
-            check assignments
+            Check assignments
           </button>
         </div>
-        <div className="flex text-center lg:text-start lg:items-start items-center flex-col gap-y-2 lg:w-[30%]">
+        <div className="flex text-center lg:text-start lg:items-start items-center flex-col  lg:w-[30%] gap-y-4">
           <h2 className="font-bold text-2xl">Results</h2>
           <p className="px-6 lg:px-0 font-light">
             Click the check results button below to check your child/ward’s
             results{" "}
           </p>
           <button className="rounded-xl  flex items-center bg-white text-gray-900 w-40 h-8 justify-center">
-            check result
+            Check result
           </button>
         </div>
         </article>
@@ -160,7 +160,7 @@ export default function Home() {
       <section className="flex flex-col justify-center items-center  text-center bg-[#212121] h-min py-4 text-white gap-y-4">
           
         <h2 className="">Admissions</h2>
-        <article className="flex flex-col lg:flex-row h-96 gap-x-2">
+        <article className="flex flex-col lg:flex-row min-h-max gap-x-2">
 
         <div className="flex items-center lg:items-start lg:text-start h-full flex-col justify-center gap-y-4">
         <p className="text-3xl px-2 font-bold">
@@ -177,7 +177,7 @@ export default function Home() {
         </button>
         </div>
         
-      <div className="w-full h-full  rounded-t-sm border-t lg:border-t-0 mb-10 rounded-md">
+      <div className="w-full h-96 rounded-t-sm border-t lg:border-t-0 mb-10  px-2">
         <Slideshow images={images_1} interval={5000} />
       </div>
 
