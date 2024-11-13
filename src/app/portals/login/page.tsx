@@ -84,7 +84,7 @@ const Login = () => {
 
   if (isClient && !localStorage.getItem("authData")) {
     return (
-      <section className="h-screen">
+      <section className="h-screen mb-24">
         <Image
           src={image}
           alt="Gloryseed school results page"

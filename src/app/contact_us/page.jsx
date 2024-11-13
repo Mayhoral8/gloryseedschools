@@ -6,10 +6,10 @@ import mobileImage from "../../assets/contactUs/contact-us-mobile.png";
 const ContactUs = () => {
   return (
     <div className="mt-20">
-      <Image src={image} alt="gloryseed school contact us page" className="h-40 lg:block hidden"/>
-      <Image src={mobileImage} alt="gloryseed school contact page lg:hidden"/>
+      <Image src={image} alt="gloryseed school contact us page" className="h-72 lg:block hidden"/>
+      <Image src={mobileImage} alt="gloryseed school contact page lg:hidden" className="lg:hidden block"/>
       <section className="flex lg:flex-row justify-center items-center flex-col lg:w-[50%] w-[90%] mx-auto lg:gap-x-4 gap-y-4 lg:gap-y-0">
-        <article className="border shadow-sm lg:w-[50%] w-full h-40 flex-col items-center justify-center text-center mt-10">
+        <article className="border shadow-sm lg:w-[50%] w-full h-40 flex flex-col items-center justify-center text-center mt-10 lg:mt-0">
           <h2>Our Address</h2>
           <div>
             <p>
@@ -19,7 +19,7 @@ const ContactUs = () => {
           </div>
         </article>
 
-        <article className="border shadow-sm lg:w-[50%] w-[90%]  h-40 flex-col items-center justify-center text-center">
+        <article className="border shadow-sm lg:w-[50%] w-[90%]  h-40 flex flex-col items-center justify-center text-center">
           <h2>Phone numbers & Email address</h2>
 
           <div>

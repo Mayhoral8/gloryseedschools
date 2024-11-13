@@ -10,11 +10,13 @@ type Props = {
   images: StaticImageData[];
   interval: number;
   innerElement?: ReactNode;
+  imagePosition: String
 };
 const Slideshow: React.FC<Props> = ({
   images,
   interval = 3000,
   innerElement,
+  imagePosition
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -40,19 +42,20 @@ const Slideshow: React.FC<Props> = ({
   };
 
   return (
-    <div className=" h-full flex lg:flex-col lg:gap-y-4">
-      <div className="relative  h-full  mb-2">
+    <div className=" h-full  w-full ">
+      <div className="lg:ml-10 h-full mb-2 w-full ">
         <div
-          className=" rounded-r-md flex top-0 bottom-0 -z-10 inset-0  h-full bg-cover bg-center "
+          className=" rounded-r-md flex items-center  top-0 bottom-0 -z-10 inset-0  h-full  w-full  "
           style={{
             backgroundImage: `url(${images[currentIndex].src})`,
-            backgroundSize: "cover",
+            backgroundSize: `${imagePosition}`,
+            backgroundRepeat: "no-repeat",
           }}
         >
           {innerElement && innerElement}
         </div>
       </div>
-      <div className="hidden lg:flex lg:mt-2 flex-row gap-x-2  justify-center gap-y-2">
+      <div className="hidden lg:flex lg:mt-2  gap-x-2  justify-center gap-y-2">
         {images.map((_: StaticImageData, index: number) => (
           <span key={index} className="" onClick={() => setCurrentIndex(index)}>
             {currentIndex === index ? (

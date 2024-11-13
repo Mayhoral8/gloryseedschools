@@ -64,7 +64,7 @@ const Results = () => {
   };
 
   return (
-    <main className=" h-screen">
+    <main className=" h-screen mb-24">
       <Image
         src={image}
         alt="Gloryseed school results page"
