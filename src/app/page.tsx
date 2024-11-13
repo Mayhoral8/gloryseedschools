@@ -164,7 +164,7 @@ export default function Home() {
 
       </section>
 
-      <section className="flex flex-col justify-center items-center  text-center bg-[#212121]   text-white gap-y-4">
+      <section className="flex flex-col justify-center items-center  text-center bg-[#212121]  mt-10 text-white gap-y-4">
           
         <h2 className="">Admissions</h2>
         <article className="flex flex-col  lg:flex lg:flex-row lg:justify-between  lg:px-20 lg:items-center min-h-max gap-x-2 w-full">
