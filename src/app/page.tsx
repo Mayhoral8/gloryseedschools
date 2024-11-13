@@ -39,9 +39,11 @@ export default function Home() {
           </span>
           <span className="text-white">is Important and Thrives</span>
         </div>
+        <Link href="/about_us">
         <button className="w-40 h-10 bg-[#ECD337] text-lg text-gray-900 rounded-3xl">
-          Find out more..
+          Find out more
         </button>
+        </Link>
       </div>
     );
   };
@@ -71,7 +73,7 @@ export default function Home() {
           </p>
           <Link href="/about_us">
           <button className="w-40 h-10 bg-[#ECD337] text-lg text-gray-900 rounded-3xl">
-          Find out more..
+          Find out more
         </button>
           </Link>
         </article>

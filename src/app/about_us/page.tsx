@@ -9,7 +9,7 @@ import Slideshow from "../../../components/slideshow";
 const AboutUs = () => {
   const images = [image_1]
   return (
-    <main className="mt-20">
+    <main className="mt-20 mb-20">
       <section className="lg:flex lg:flex-row lg:w-full lg:justify-between lg:px-24">
         <div className="lg:order-2 lg:w-[40%]">
           {/* <Slideshow images={images} interval={5000}/> */}
