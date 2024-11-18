@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import Slideshow from "../../components/slideshow";
 import image1 from "@/assets/landingPage/images_1/image-1.png";
@@ -21,8 +22,15 @@ import unique_image_1 from "@/assets/landingPage/unique-image-1.png";
 import unique_image_2 from "@/assets/landingPage/unique-image-2.png";
 import unique_image_3 from "@/assets/landingPage/unique-image-3.png";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 
 export default function Home() {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   const images_1 = [image1, image2, image3, image4, image5];
   const mobile_slide_images_1 = [
     mobile_slide_image_1,

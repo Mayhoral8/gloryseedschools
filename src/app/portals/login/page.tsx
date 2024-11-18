@@ -47,7 +47,7 @@ const Login = () => {
       const updatedUserId = userId.replaceAll("/", "_");
       const { data, error } = await supabase.storage
         .from("Results")
-        .download(`${updatedUserId}.docx`);
+        .download(`${updatedUserId}.pdf`);
 
       if (error) {
         console.log("File not found:", error);
@@ -55,7 +55,7 @@ const Login = () => {
       } else {
         const { data } = supabase.storage
           .from("Results")
-          .getPublicUrl(`${updatedUserId}.docx`);
+          .getPublicUrl(`${updatedUserId}.pdf`);
         const fileUrl = data.publicUrl;
         localStorage.setItem("ResultUrl", fileUrl);
         router.push("/portals/result");

@@ -28,7 +28,7 @@ const Results = () => {
   const getResult = async (studentId) => {
     const { data, error } = await supabase.storage
       .from("Results")
-      .download(`${studentId}.docx`);
+      .download(`${studentId}.pdf`);
     if (error) {
       setShowModal(true);
       setModalMsg("File not found please check back soon");
@@ -36,7 +36,7 @@ const Results = () => {
     } else {
       const { data } = supabase.storage
         .from("Results")
-        .getPublicUrl(`${studentId}.docx`);
+        .getPublicUrl(`${studentId}.pdf`);
       const fileUrl = data.publicUrl;
       downloadResultFunc(fileUrl);
       return;
