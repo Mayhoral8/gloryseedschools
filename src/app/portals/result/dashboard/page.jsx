@@ -1,6 +1,5 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
-import Modal from "../../../../components/modal";
 import Image from "next/image";
 import image from "@/assets/portal/results.png";
 import { ContextCreate } from "@/app/context/context";
