@@ -125,9 +125,11 @@ export default function Home() {
             Click the check assignments button below to check your child/ward’s
             assignments
           </p>
+          <Link href="/portals/assignments">
           <button className="rounded-xl px-2 justify-center flex items-center bg-[#ECD337] w-44 h-8 ">
             Check assignments
           </button>
+          </Link>
         </div>
         <div className="flex text-center lg:text-start lg:items-start items-center flex-col  lg:w-[30%] gap-y-4">
           <h2 className="font-bold text-2xl">Results</h2>
@@ -135,7 +137,7 @@ export default function Home() {
             Click the check results button below to check your child/ward’s
             results{" "}
           </p>
-          <Link href="/portals">
+          <Link href="/portals/result">
           <button className="rounded-xl  flex items-center bg-white text-gray-900 w-40 h-8 justify-center">
             Check result
           </button>
