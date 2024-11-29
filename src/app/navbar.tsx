@@ -13,6 +13,7 @@ import secondaryLogo from "@/assets/navbar/secondary-logo.png";
 import { useRouter } from "next/navigation";
 import { RxCaretDown } from "react-icons/rx";
 import { RxCaretUp } from "react-icons/rx";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface State {
   admissionsIsActive: boolean;
@@ -29,16 +30,18 @@ const Navbar = () => {
   const { ref1, ref2 } = useContext(ContextCreate);
   const pathname = usePathname();
   const [openNavBar, setOpenNavBar] = useState<boolean>(false);
-  const [portalMenuOpen, setPortalMenuOpen] = useState<boolean>(false);
-  const router = useRouter()
+  const [showPortalMenu, setShowPortalMenu] = useState<boolean>(false);
+  const router = useRouter();
 
-  const handleLogout = ()=>{
-    console.log("dswe");
-    
-    localStorage.removeItem("authData")
-    localStorage.removeItem("ResultUrl")
-    router.push("/portals/login")
-  }
+  const handleLogout = () => {
+    localStorage.removeItem("authData");
+    localStorage.removeItem("ResultUrl");
+    router.push("/portals/result/login");
+  };
+
+  const handleShowPortal = () => {
+    setShowPortalMenu(!showPortalMenu);
+  };
 
   const initialState = {
     admissionsIsActive: false,
@@ -91,8 +94,6 @@ const Navbar = () => {
     }
   };
 
-  
-  
   const [state, dispatch] = useReducer(reducerFunc, initialState);
 
   const navBarHandler = (type: string | undefined) => {
@@ -158,7 +159,7 @@ const Navbar = () => {
 
         <div className="lg:hidden cursor-pointer text-2xl">
           {openNavBar ? (
-            <FaXmark  onClick={() => navBarHandler("")} />
+            <FaXmark onClick={() => navBarHandler("")} />
           ) : (
             <GiHamburgerMenu onClick={() => navBarHandler("")} />
           )}
@@ -167,33 +168,58 @@ const Navbar = () => {
 
       <div
         className={`${
-          openNavBar ? "bg-[#AA7529] h-screen text-gray-950 " : " h-0"
-        } shadow-md transition-all delay-400 duration-300 lg:h-full lg:shadow-none w-full   lg:text-black lg:bg-white overflow-y-scroll lg:overflow-hidden relative`}
+          openNavBar
+            ? "bg-[#AA7529] h-[50vh] px-4 lg:px-0 py-4 lg:py-0 text-gray-950 "
+            : " h-0"
+        } shadow-md transition-all delay-400 duration-300 lg:h-full lg:shadow-none w-full   lg:text-black lg:bg-white relative`}
       >
-        <ul className="flex  lg:px-2  lg:justify-end lg:gap-x-20 lg:items-center items-center gap-y-8 lg:gap-y-0 justify-center  lg:text-sm flex-col lg:flex-row  h-full relative text-xl">
+        <ul className="flex  lg:px-2  lg:justify-end lg:gap-x-20 lg:items-center gap-y-8 lg:gap-y-0  lg:text-sm flex-col lg:flex-row  h-full relative text-xl">
           <Link href="/about_us" className="">
             <li
               className={`${
                 openNavBar ? "visible" : "hidden"
               } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950 lg:block ${
                 state.aboutIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
-              } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 ml-2 lg:ml-0`}
+              } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 lg:ml-0`}
               onClick={() => navBarHandler("about")}
             >
               About Us
             </li>
           </Link>
-          <Link href="/portals">
-              <div
-                className={`${openNavBar ? "visible" : "hidden"}  lg:block ${
-                  state.portalsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
-                } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 cursor-pointer flex flex-row items-center justify-between`}
-                onClick={() => navBarHandler("portal")}
-              >
-                Portal
-              
+          <article>
+            <div
+              className={`${
+                openNavBar ? "visible" : "hidden"
+              }  lg:block ${
+                state.portalsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
+              } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 cursor-pointer flex flex-row items-center justify-between`}
+              onClick={handleShowPortal}
+            >
+              <h2>Portal</h2>
+              {showPortalMenu ? (
+                <RxCaretUp className="text-lg" />
+              ) : (
+                <RxCaretDown className="text-lg" />
+              )}
             </div>
-          </Link>
+            <AnimatePresence>
+              {showPortalMenu && (
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.1, ease: "easeOut" }}
+                  className={
+                    `${!showPortalMenu && "hidden"} flex bg-white h-20 px-2  flex-col gap-y-2 py-1 transition-all lg:absolute lg:bg-white justify-center lg:rounded-md lg:z-20 lg:ml-2 lg:border lg:w-32 lg:text-sm`
+                  }
+                  onClick={handleShowPortal}
+                >
+                  <Link href="/portals/assignments">Assignments</Link>
+                  <Link href="/portals/result">Result</Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </article>
 
           <Link href="/admissions" className="">
             <li
@@ -211,7 +237,7 @@ const Navbar = () => {
           <Link href="/contact_us" className="">
             <li
               className={`${
-                openNavBar  ? "visible" : "hidden"
+                openNavBar ? "visible" : "hidden"
               } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950 lg:block ${
                 state.contactIsActive && "lg:bg-[#ECD337]  lg:text-gray-950"
               } lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative`}
@@ -222,11 +248,9 @@ const Navbar = () => {
           </Link>
 
           <li
-            className={`${
-              openNavBar 
-                ? "visible"
-                : "hidden"
-            } ${pathname === "/portals/result" ? "visible" : "hidden lg:hidden"} hover:lg:bg-[#ECD337]  hover:lg:text-gray-950  lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative cursor-pointer`}
+            className={`${openNavBar ? "visible" : "hidden"} ${
+              pathname === "/portals/result/dashboard" ? "visible" : "hidden lg:hidden"
+            } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950  lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative cursor-pointer`}
             onClick={handleLogout}
           >
             Logout

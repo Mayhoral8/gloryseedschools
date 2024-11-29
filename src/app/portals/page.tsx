@@ -1,16 +1,9 @@
-"use client"
-import React from "react";
-import Login from "@/app/portals/login/page";
-import Results from "@/app/portals/result/page";
-import { useRouter } from "next/router";
+import React from 'react'
 
-const Portals = () => {
-  // const router = useRouter()
-  
-    return(
-      <Login/>
-      )
-  
-};
+const Page = () => {
+  return (
+    <div>Page</div>
+  )
+}
 
-export default Portals;
+export default Page

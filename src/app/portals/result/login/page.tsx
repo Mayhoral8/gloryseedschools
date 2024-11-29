@@ -1,11 +1,11 @@
 "use client";
 import React, { useState, useEffect, useContext } from "react";
 import supabase from "@/services/supabase";
-import Loader from "../../../../components/loader";
+import Loader from "../../../../../components/loader"
 import Image from "next/image";
 import image from "@/assets/portal/results.png";
 import { useRouter } from "next/navigation";
-import Modal from "../../../../components/modal";
+import Modal from "../../../../../components/modal"
 import { ContextCreate } from "@/app/context/context";
 import mobileImage from "@/assets/portal/result-mobile.png";
 
@@ -58,7 +58,7 @@ const Login = () => {
           .getPublicUrl(`${updatedUserId}.pdf`);
         const fileUrl = data.publicUrl;
         localStorage.setItem("ResultUrl", fileUrl);
-        router.push("/portals/result");
+        router.push("/portals/result/dashboard");
       }
       setIsLoading(false);
     }
