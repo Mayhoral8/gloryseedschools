@@ -60,7 +60,7 @@ export default function Home() {
       <section className=" lg:hidden h-96 flex flex-col items-center justify-center">
         <Slideshow
           images={mobile_slide_images_1}
-          interval={4000}
+          interval={5000}
           innerElement={slideshowElement1()}
           imagePosition="cover"
         />
@@ -196,8 +196,8 @@ export default function Home() {
         </Link>
         </div>
         
-      <div className="lg:w-[50%] lg:ml-10 h-96 rounded-t-sm lg:border-t-0 mb-10 mt-4 lg:mt-0">
-        <Slideshow images={images_1} interval={4000} imagePosition="contain"/>
+      <div className="lg:w-[50%] lg:ml-10 h-96 rounded-t-sm lg:border-t-0 mb-10 mt-4 lg:mt-0 overflow-hidden">
+        <Slideshow images={images_1} interval={5000} imagePosition="contain"/>
       </div>
 
         </article>

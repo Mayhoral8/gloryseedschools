@@ -41,8 +41,13 @@ const Navbar = () => {
 
   const handleShowPortal = () => {
     setShowPortalMenu(!showPortalMenu);
-    setOpenNavBar(!openNavBar);
   };
+  const handleClosePortal =(type: string)=>{
+    if (type === "navigate"){
+      setOpenNavBar(false)
+    }
+    setShowPortalMenu(false)
+  }
 
   const initialState = {
     admissionsIsActive: false,
@@ -194,7 +199,7 @@ const Navbar = () => {
               }  lg:block ${
                 state.portalsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
               } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 cursor-pointer flex flex-row items-center justify-between`}
-              onClick={handleShowPortal}
+             onClick={handleShowPortal}
             >
               <h2>Portal</h2>
               {showPortalMenu ? (
@@ -209,14 +214,14 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.1, ease: "easeOut" }}
+                  transition={{ duration: 0.1 }}
                   className={
                     `${!showPortalMenu && "hidden"} flex bg-white h-20 px-2  flex-col gap-y-2 py-1 transition-all lg:absolute lg:bg-white justify-center lg:rounded-md lg:z-20 lg:ml-2 lg:border lg:w-32 lg:text-sm`
                   }
                   
                 >
-                  <Link href="/portals/assignments" onClick={handleShowPortal}>Assignments</Link>
-                  <Link href="/portals/result" onClick={handleShowPortal}>Result</Link>
+                  <Link href="/portals/assignments" onClick={()=> handleClosePortal("navigate")}>Assignments</Link>
+                  <Link href="/portals/result" onClick={()=> handleClosePortal("navigate")}>Result</Link>
                 </motion.div>
               )}
             </AnimatePresence>

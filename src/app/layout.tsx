@@ -6,6 +6,7 @@ import Footer from "./footer";
 import "./globals.css";
 import Navbar from "./navbar";
 import Modal from "../../components/modal";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import { raleway } from "./ui/fonts";
 
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${raleway.className}`}
       >
         <ReactQueryProvider >
+        <ReactQueryDevtools initialIsOpen={false}/>
         <ContextComp>
           <section>
             <Modal/>
