@@ -41,6 +41,7 @@ const Navbar = () => {
 
   const handleShowPortal = () => {
     setShowPortalMenu(!showPortalMenu);
+    setOpenNavBar(!openNavBar);
   };
 
   const initialState = {
@@ -212,10 +213,10 @@ const Navbar = () => {
                   className={
                     `${!showPortalMenu && "hidden"} flex bg-white h-20 px-2  flex-col gap-y-2 py-1 transition-all lg:absolute lg:bg-white justify-center lg:rounded-md lg:z-20 lg:ml-2 lg:border lg:w-32 lg:text-sm`
                   }
-                  onClick={handleShowPortal}
+                  
                 >
-                  <Link href="/portals/assignments">Assignments</Link>
-                  <Link href="/portals/result">Result</Link>
+                  <Link href="/portals/assignments" onClick={handleShowPortal}>Assignments</Link>
+                  <Link href="/portals/result" onClick={handleShowPortal}>Result</Link>
                 </motion.div>
               )}
             </AnimatePresence>
