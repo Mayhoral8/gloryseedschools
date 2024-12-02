@@ -5,6 +5,7 @@ import image from "@/assets/portal/results.png";
 import { ContextCreate } from "@/app/context/context";
 import supabase from "@/services/supabase";
 import mobileImage from "@/assets/portal/result-mobile.png";
+import Loader from "@/components/loader";
 
 const Results = () => {
   const { setShowModal, modalMsg, setModalMsg } = useContext(ContextCreate);
@@ -47,7 +48,6 @@ const Results = () => {
 
     if (resultUrl) {
       // Create a temporary anchor element for download
-      console.log(resultUrl);
 
       const link = document.createElement("a");
       link.href = resultUrl;
@@ -61,40 +61,47 @@ const Results = () => {
       getResult(studentId);
     }
   };
+  console.log(userName.length);
 
-  return (
-    <main className=" h-screen mb-24">
-      <Image
-        src={image}
-        alt="Gloryseed school results page"
-        className="mt-16 hidden lg:block"
-      />
-      <Image
-        src={mobileImage}
-        alt="Gloryseed school results page"
-        className="lg:hidden"
-      />
-      <div className=" items-center justify-center text-center flex flex-col w-full">
-        <div className="flex flex-row text-2xl">
-          <h2>Hi, </h2>
-          <span className="font-bold">{userName}</span>
+  if (userName === "") {
+    return <Loader />;
+  } else {
+    return (
+      <main className="min-h-screen flex justify-between flex-col lg:mb-10">
+        <Image
+          src={image}
+          alt="Gloryseed school results page"
+          className="mt-16 hidden lg:block"
+        />
+        <Image
+          src={mobileImage}
+          alt="Gloryseed school results page"
+          className="lg:hidden"
+        />
+        <div className=" items-center justify-center text-center flex flex-col w-full my-auto gap-y-6">
+          <div className="flex flex-col text-lg lg:text-2xl px-2">
+            <h2>Hi</h2>
+            <span className="font-bold ml-1 mx-auto">{userName}</span>
+          </div>
+          <div className="flex flex-col lg:w-[40%]">
+            <p className="mt-4 px-4 ">
+              Congratulations on the successful completion of your terminal
+              Examinations and other assessments.
+            </p>
+
+            <p>Click the button below to download and check your result</p>
+          </div>
+
+          <button
+            onClick={downloadResult}
+            className="rounded-2xl mt-4 h-10 bg-black w-[30%] text-white block mx-auto"
+          >
+            Download
+          </button>
         </div>
-        <p className="mt-4">
-          Congratulations on the successful completion of your terminal
-          Examinations and other assessments.
-        </p>
-
-        <p>Click the button below to download and check your result</p>
-
-        <button
-          onClick={downloadResult}
-          className="rounded-2xl mt-4 h-10 bg-black w-[30%] text-white block mx-auto"
-        >
-          Download
-        </button>
-      </div>
-    </main>
-  );
+      </main>
+    );
+  }
 };
 
 export default Results;

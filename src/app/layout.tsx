@@ -1,12 +1,12 @@
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Modal from "../components/modal";
 import { ContextComp } from "./context/context";
-import ReactQueryProvider from "./reactqueryProvider";
 import Footer from "./footer";
 import "./globals.css";
 import Navbar from "./navbar";
-import Modal from "../../components/modal";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import ReactQueryProvider from "./reactqueryProvider";
 
 import { raleway } from "./ui/fonts";
 

@@ -1,13 +1,12 @@
 "use client";
-import React, { useState, useEffect, useContext } from "react";
-import supabase from "@/services/supabase";
-import Loader from "../../../../../components/loader"
-import Image from "next/image";
-import image from "@/assets/portal/results.png";
-import { useRouter } from "next/navigation";
-import Modal from "../../../../../components/modal"
 import { ContextCreate } from "@/app/context/context";
 import mobileImage from "@/assets/portal/result-mobile.png";
+import image from "@/assets/portal/results.png";
+import supabase from "@/services/supabase";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
+import Loader from "../../../../components/loader";
 
 const Login = () => {
   const [userId, setUserId] = useState("");
@@ -41,6 +40,7 @@ const Login = () => {
       const authData = {
         name: student[0].NAME,
         id: userId,
+        formattedId: userId.replaceAll("/", "_")
       };
       localStorage.setItem("authData", JSON.stringify(authData));
 
@@ -48,7 +48,6 @@ const Login = () => {
       const { data, error } = await supabase.storage
         .from("Results")
         .download(`${updatedUserId}.pdf`);
-
       if (error) {
         console.log("File not found:", error);
         router.push("/portals/result");
@@ -58,6 +57,7 @@ const Login = () => {
           .getPublicUrl(`${updatedUserId}.pdf`);
         const fileUrl = data.publicUrl;
         localStorage.setItem("ResultUrl", fileUrl);
+        
         router.push("/portals/result/dashboard");
       }
       setIsLoading(false);
@@ -82,7 +82,7 @@ const Login = () => {
     );
   }
 
-  if (isClient && !localStorage.getItem("authData")) {
+  if ( !localStorage.getItem("authData")) {
     return (
       <section className="h-screen mb-24">
         <Image
@@ -122,7 +122,7 @@ const Login = () => {
       </section>
     );
   } else if (isClient) {
-    router.push("/portals/result");
+    router.push("/portals/result/dashboard");
   }
 };
 

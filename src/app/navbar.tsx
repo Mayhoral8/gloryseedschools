@@ -108,6 +108,7 @@ const Navbar = () => {
       return dispatch({ type: "DEFAULT" });
     } else {
       setOpenNavBar(!openNavBar);
+      setShowPortalMenu(false)
     }
 
     if (type === "about") {

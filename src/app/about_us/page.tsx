@@ -1,10 +1,8 @@
-import React from "react";
-import Image from "next/image";
 import image_1 from "@/assets/landingPage/images_1/image-1.png";
-import { SlDiamond } from "react-icons/sl";
+import Image from "next/image";
 import { BsEye } from "react-icons/bs";
 import { PiRocketThin } from "react-icons/pi";
-import Slideshow from "../../../components/slideshow";
+import { SlDiamond } from "react-icons/sl";
 
 const AboutUs = () => {
   const images = [image_1]

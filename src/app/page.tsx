@@ -1,19 +1,19 @@
 "use client";
-import { useEffect } from "react";
-import Image from "next/image";
-import Slideshow from "../../components/slideshow";
+import header_img from "@/assets/landingPage/header-img.png";
 import image1 from "@/assets/landingPage/images_1/image-1.png";
 import image2 from "@/assets/landingPage/images_1/image-2.png";
 import image3 from "@/assets/landingPage/images_1/image-3.png";
 import image4 from "@/assets/landingPage/images_1/image-4.png";
 import image5 from "@/assets/landingPage/images_1/image-5.png";
 import portals from "@/assets/landingPage/portals.png";
-import header_img from "@/assets/landingPage/header-img.png"
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
+import Slideshow from "../components/slideshow";
 
 
-import hero_image_1 from "@/assets/landingPage/hero-images/hero-image-1.png"
-import hero_image_2 from "@/assets/landingPage/hero-images/hero-image-2.png"
+import hero_image_1 from "@/assets/landingPage/hero-images/hero-image-1.png";
+import hero_image_2 from "@/assets/landingPage/hero-images/hero-image-2.png";
 import mobile_slide_image_1 from "@/assets/landingPage/mobile-slide-images-1/image-1.png";
 import mobile_slide_image_2 from "@/assets/landingPage/mobile-slide-images-1/image-2.png";
 import mobile_slide_image_3 from "@/assets/landingPage/mobile-slide-images-1/image-3.png";
