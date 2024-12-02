@@ -50,7 +50,7 @@ const Login = () => {
         .download(`${updatedUserId}.pdf`);
       if (error) {
         console.log("File not found:", error);
-        router.push("/portals/result");
+        router.push("/portals/result/login");
       } else {
         const { data } = supabase.storage
           .from("Results")
@@ -121,7 +121,7 @@ const Login = () => {
         </article>
       </section>
     );
-  } else if (isClient) {
+  } else {
     router.push("/portals/result/dashboard");
   }
 };
