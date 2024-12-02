@@ -82,7 +82,7 @@ const Login = () => {
     );
   }
 
-  if ( !localStorage.getItem("authData")) {
+  if (isClient && !localStorage.getItem("authData")) {
     return (
       <section className="h-screen mb-24">
         <Image
