@@ -27,9 +27,8 @@ type Action = {
 };
 
 const Navbar = () => {
-  const { ref1, setShowSignOutModal } = useContext(ContextCreate);
+  const { ref1, setShowSignOutModal, openNavbar, setOpenNavbar } = useContext(ContextCreate);
   const pathname = usePathname();
-  const [openNavBar, setOpenNavBar] = useState<boolean>(false);
   const [showPortalMenu, setShowPortalMenu] = useState<boolean>(false);
   const router = useRouter();
 
@@ -44,7 +43,7 @@ const Navbar = () => {
   };
   const handleClosePortal =(type: string)=>{
     if (type === "navigate"){
-      setOpenNavBar(false)
+      setOpenNavbar(false)
     }
     setShowPortalMenu(false)
   }
@@ -104,10 +103,10 @@ const Navbar = () => {
 
   const navBarHandler = (type: string | undefined) => {
     if (type === "home") {
-      setOpenNavBar(false);
+      setOpenNavbar(false);
       return dispatch({ type: "DEFAULT" });
     } else {
-      setOpenNavBar(!openNavBar);
+      setOpenNavbar(!openNavbar);
       setShowPortalMenu(false)
     }
 
@@ -165,7 +164,7 @@ const Navbar = () => {
         </div>
 
         <div className="lg:hidden cursor-pointer text-2xl">
-          {openNavBar ? (
+          {openNavbar ? (
             <FaXmark onClick={() => navBarHandler("")} />
           ) : (
             <GiHamburgerMenu onClick={() => navBarHandler("")} />
@@ -175,7 +174,7 @@ const Navbar = () => {
 
       <div
         className={`${
-          openNavBar
+          openNavbar
             ? "bg-[#AA7529] h-[50vh] px-4 lg:px-0 py-4 lg:py-0 text-gray-950 "
             : " h-0"
         } shadow-md transition-all delay-400 duration-300 lg:h-full lg:shadow-none w-full   lg:text-black lg:bg-white relative`}
@@ -184,7 +183,7 @@ const Navbar = () => {
           <Link href="/about_us" className="">
             <li
               className={`${
-                openNavBar ? "visible" : "hidden"
+                openNavbar ? "visible" : "hidden"
               } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950 lg:block ${
                 state.aboutIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
               } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 lg:ml-0`}
@@ -196,7 +195,7 @@ const Navbar = () => {
           <article>
             <div
               className={`${
-                openNavBar ? "visible" : "hidden"
+                openNavbar ? "visible" : "hidden"
               }  lg:block ${
                 state.portalsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950 "
               } text-white lg:text-gray-900 lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 cursor-pointer flex flex-row items-center justify-between`}
@@ -231,7 +230,7 @@ const Navbar = () => {
           <Link href="/admissions" className="">
             <li
               className={`${
-                openNavBar ? "visible" : "hidden"
+                openNavbar ? "visible" : "hidden"
               } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950 lg:block ${
                 state.admissionsIsActive && "lg:bg-[#ECD337]  lg:text-gray-950"
               } lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300`}
@@ -244,7 +243,7 @@ const Navbar = () => {
           <Link href="/contact_us" className="">
             <li
               className={`${
-                openNavBar ? "visible" : "hidden"
+                openNavbar ? "visible" : "hidden"
               } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950 lg:block ${
                 state.contactIsActive && "lg:bg-[#ECD337]  lg:text-gray-950"
               } lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative`}
@@ -255,7 +254,7 @@ const Navbar = () => {
           </Link>
 
           <li
-            className={`${openNavBar ? "visible" : "hidden"} ${
+            className={`${openNavbar ? "visible" : "hidden"} ${
               pathname === "/portals/result/dashboard" ? "visible" : "hidden lg:hidden"
             } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950  lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative cursor-pointer`}
             onClick={()=> setShowSignOutModal(true)}

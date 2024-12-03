@@ -9,6 +9,8 @@ interface ContextTypes {
     setModalMsg: React.Dispatch<React.SetStateAction<string>>
     showSignOutModal: boolean
     setShowSignOutModal: React.Dispatch<React.SetStateAction<boolean>>
+    openNavbar: boolean
+    setOpenNavbar: React.Dispatch<React.SetStateAction<boolean>>
     showModal: boolean
     modalMsg: string
   }
@@ -19,6 +21,7 @@ const ContextComp: React.FC<{ children: React.ReactNode }> = (props) => {
     const ref1 = useRef<HTMLDivElement>(null)
     const ref2 = useRef<HTMLDivElement>(null)
     const [showModal, setShowModal] = useState(false)
+    const [openNavbar, setOpenNavbar] = useState<boolean>(false);
     const [showSignOutModal, setShowSignOutModal] = useState(false)
     const [modalMsg, setModalMsg] = useState("")
 
@@ -32,7 +35,9 @@ const ContextComp: React.FC<{ children: React.ReactNode }> = (props) => {
           modalMsg,
           setModalMsg,
           showSignOutModal,
-          setShowSignOutModal
+          setShowSignOutModal,
+          openNavbar,
+          setOpenNavbar
       
         }}>
   {props.children}
