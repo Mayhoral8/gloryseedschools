@@ -12,14 +12,26 @@ const Login = () => {
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [authData, setAuthData] = useState<null|string>("")
   const { modalMsg, setModalMsg, setShowModal, showModal } =
     useContext(ContextCreate);
   const [isClient, setIsClient] = useState(false);
   const router = useRouter();
 
   // Run only on the client side
+  // useEffect(() => {
+  //   setIsClient(true);
+  //   console.log(
+  //    localStorage.getItem("authData"))
+  // }, []);
   useEffect(() => {
-    setIsClient(true);
+    if (typeof window !== "undefined") {
+      // Safe to use localStorage
+      const rawAuthData = localStorage?.getItem("authData")
+      const authData = rawAuthData && JSON.parse(rawAuthData)
+      setAuthData(authData)
+     
+    }
   }, []);
 
   const login = async () => {
@@ -82,7 +94,7 @@ const Login = () => {
     );
   }
 
-  if (isClient && !localStorage.getItem("authData")) {
+  if (!authData) {
     return (
       <section className="h-screen mb-24">
         <Image
@@ -97,7 +109,7 @@ const Login = () => {
         />
         <article className="items-center justify-center text-center flex flex-col lg:w-[50%] w-[80%] mx-auto gap-y-6 mt-10">
           <div className="flex flex-col gap-y-2 w-full items-center justify-center">
-            <label className="w-[70%] text-left">User Id</label>
+            <label className="w-[70%] text-left">Student Id</label>
             <input
               value={userId}
               onChange={handleUserId}

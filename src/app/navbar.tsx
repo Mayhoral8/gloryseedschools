@@ -27,7 +27,7 @@ type Action = {
 };
 
 const Navbar = () => {
-  const { ref1, ref2 } = useContext(ContextCreate);
+  const { ref1, setShowSignOutModal } = useContext(ContextCreate);
   const pathname = usePathname();
   const [openNavBar, setOpenNavBar] = useState<boolean>(false);
   const [showPortalMenu, setShowPortalMenu] = useState<boolean>(false);
@@ -258,7 +258,7 @@ const Navbar = () => {
             className={`${openNavBar ? "visible" : "hidden"} ${
               pathname === "/portals/result/dashboard" ? "visible" : "hidden lg:hidden"
             } hover:lg:bg-[#ECD337]  hover:lg:text-gray-950  lg:text-gray-900 text-white lg:h-8 lg:w-20 lg:text-center lg:flex lg:items-center lg:justify-center transition-all delay-400 duration-300 relative cursor-pointer`}
-            onClick={handleLogout}
+            onClick={()=> setShowSignOutModal(true)}
           >
             Logout
           </li>

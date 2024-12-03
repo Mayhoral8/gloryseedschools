@@ -7,6 +7,8 @@ interface ContextTypes {
     ref2: React.RefObject<HTMLDivElement>
     setShowModal: React.Dispatch<React.SetStateAction<boolean>>
     setModalMsg: React.Dispatch<React.SetStateAction<string>>
+    showSignOutModal: boolean
+    setShowSignOutModal: React.Dispatch<React.SetStateAction<boolean>>
     showModal: boolean
     modalMsg: string
   }
@@ -17,6 +19,7 @@ const ContextComp: React.FC<{ children: React.ReactNode }> = (props) => {
     const ref1 = useRef<HTMLDivElement>(null)
     const ref2 = useRef<HTMLDivElement>(null)
     const [showModal, setShowModal] = useState(false)
+    const [showSignOutModal, setShowSignOutModal] = useState(false)
     const [modalMsg, setModalMsg] = useState("")
 
   return (
@@ -27,7 +30,9 @@ const ContextComp: React.FC<{ children: React.ReactNode }> = (props) => {
           showModal,
           setShowModal,
           modalMsg,
-          setModalMsg
+          setModalMsg,
+          showSignOutModal,
+          setShowSignOutModal
       
         }}>
   {props.children}

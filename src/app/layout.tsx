@@ -7,6 +7,7 @@ import Footer from "./footer";
 import "./globals.css";
 import Navbar from "./navbar";
 import ReactQueryProvider from "./reactqueryProvider";
+import SignoutModal from "../components/SignoutModal"
 
 import { raleway } from "./ui/fonts";
 
@@ -40,6 +41,7 @@ export default function RootLayout({
         <ReactQueryDevtools initialIsOpen={false}/>
         <ContextComp>
           <section>
+            <SignoutModal/>
             <Modal/>
             <Navbar />
             {children}

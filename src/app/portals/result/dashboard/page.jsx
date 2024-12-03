@@ -7,14 +7,19 @@ import supabase from "@/services/supabase";
 import mobileImage from "@/assets/portal/result-mobile.png";
 import Loader from "@/components/loader";
 
-const Results = () => {
+const Dashboard = () => {
   const { setShowModal, modalMsg, setModalMsg } = useContext(ContextCreate);
+  const [isClient, setIsClient] = useState(false);
   const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const authData = JSON.parse(localStorage.getItem("authData"));
-    setUserName(authData.name);
+    setUserName(authData?.name);
   });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const downloadResultFunc = (resultUrl) => {
     const link = document.createElement("a");
@@ -61,7 +66,6 @@ const Results = () => {
       getResult(studentId);
     }
   };
-  console.log(userName.length);
 
   if (userName === "") {
     return <Loader />;
@@ -104,4 +108,4 @@ const Results = () => {
   }
 };
 
-export default Results;
+export default Dashboard;
