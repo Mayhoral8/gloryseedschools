@@ -8,7 +8,7 @@ import mobileImage from "@/assets/portal/result-mobile.png";
 import Loader from "@/components/loader";
 
 const Dashboard = () => {
-  const { setShowModal, modalMsg, setModalMsg } = useContext(ContextCreate);
+  const { setShowModal, modalMsg, setModalMsg, setIsLoading } = useContext(ContextCreate);
   const [isClient, setIsClient] = useState(false);
   const [userName, setUserName] = useState("");
 
@@ -49,6 +49,7 @@ const Dashboard = () => {
   };
 
   const downloadResult = () => {
+    setIsLoading(true)
     const resultUrl = localStorage.getItem("ResultUrl");
 
     if (resultUrl) {
@@ -65,6 +66,7 @@ const Dashboard = () => {
       const studentId = authData.id;
       getResult(studentId);
     }
+    setIsLoading(false)
   };
 
   if (userName === "") {
@@ -87,18 +89,18 @@ const Dashboard = () => {
             <h2>Hi</h2>
             <span className="font-bold ml-1 mx-auto">{userName}</span>
           </div>
-          <div className="flex flex-col lg:w-[40%]">
+          <div className="flex flex-col lg:w-[40%] gap-y-2">
             <p className="mt-4 px-4 ">
               Congratulations on the successful completion of your terminal
               Examinations and other assessments.
             </p>
 
-            <p>Click the button below to download and check your result</p>
+            <p className="px-4 lg:px-0">Click the button below to download and check your result</p>
           </div>
 
           <button
             onClick={downloadResult}
-            className="rounded-2xl mt-4 h-10 bg-black w-[30%] text-white block mx-auto"
+            className="rounded-xl mt-4 h-10 bg-black lg:w-[30%]  w-[50%] text-white block mx-auto"
           >
             Download
           </button>

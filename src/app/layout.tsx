@@ -8,6 +8,7 @@ import "./globals.css";
 import Navbar from "./navbar";
 import ReactQueryProvider from "./reactqueryProvider";
 import SignoutModal from "../components/SignoutModal"
+import Loader from "@/components/loader";
 
 import { raleway } from "./ui/fonts";
 
@@ -42,6 +43,7 @@ export default function RootLayout({
         <ContextComp>
           <section>
             <SignoutModal/>
+            <Loader/>
             <Modal/>
             <Navbar />
             {children}
