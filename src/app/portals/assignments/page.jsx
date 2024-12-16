@@ -5,7 +5,7 @@ import { ContextCreate } from "@/app/context/context";
 import Image from "next/image";
 import mobileImage from "../../../assets/portal/assignment-mobile.png";
 import desktopImage from "../../../assets/portal/assignment-desktop.png";
-import { RiFile2Line2 } from "react-icons/ri";
+import { RiFile2Line } from "react-icons/ri";
 import { LuCalendarDays } from "react-icons/lu";
 import supabase from "@/services/supabase";
 
@@ -69,39 +69,39 @@ const Assignment = () => {
           </div>
           <div className="grid grid-flow-row grid-cols-3 gap-x-10 lg:grid-flow-col">
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-1")}/>
               <span>Basic 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-1")}/>
               <span>Basic 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-1")}/>
               <span>Basic 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-1")}/>
               <span>Basic 4</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-1")}/>
               <span>Basic 5</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-1")}/>
               <span>JS 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-1")}/>
               <span>JS 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-1")}/>
               <span>JS 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-1")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-1")}/>
               <span>SS 1</span>
             </div>
           </div>
@@ -112,39 +112,39 @@ const Assignment = () => {
           </div>
           <div className="grid grid-flow-row grid-cols-3 gap-x-10 lg:grid-flow-col">
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-2")}/>
               <span>Basic 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-2")}/>
               <span>Basic 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-2")}/>
               <span>Basic 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-2")}/>
               <span>Basic 4</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-2")}/>
               <span>Basic 5</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-2")}/>
               <span>JS 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-2")}/>
               <span>JS 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-2")}/>
               <span>JS 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-2")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-2")}/>
               <span>SS 1</span>
             </div>
           </div>
@@ -155,39 +155,39 @@ const Assignment = () => {
           </div>
           <div className="grid grid-flow-row grid-cols-3 gap-x-10 lg:grid-flow-col">
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-3")}/>
               <span>Basic 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-3")}/>
               <span>Basic 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-3")}/>
               <span>Basic 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-3")}/>
               <span>Basic 4</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-3")}/>
               <span>Basic 5</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-3")}/>
               <span>JS 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-3")}/>
               <span>JS 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-3")}/>
               <span>JS 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-3")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-3")}/>
               <span>SS 1</span>
             </div>
           </div>
@@ -198,39 +198,39 @@ const Assignment = () => {
           </div>
           <div className="grid grid-flow-row grid-cols-3 lg:grid-flow-col gap-x-10">
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC1", "WEEK-4")}/>
               <span>Basic 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC2", "WEEK-4")}/>
               <span>Basic 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC3", "WEEK-4")}/>
               <span>Basic 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC4", "WEEK-4")}/>
               <span>Basic 4</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("BASIC5", "WEEK-4")}/>
               <span>Basic 5</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS1", "WEEK-4")}/>
               <span>JS 1</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS2", "WEEK-4")}/>
               <span>JS 2</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("JS3", "WEEK-4")}/>
               <span>JS 3</span>
             </div>
             <div className="flex flex-col items-center">
-              <RiFile2Line2 title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-4")}/>
+              <RiFile2Line title="Click to download" className="hover:text-[#AA7529] cursor-pointer text-7xl" onClick={()=>downloadAssignment("SS1", "WEEK-4")}/>
               <span>SS 1</span>
             </div>
           </div>
